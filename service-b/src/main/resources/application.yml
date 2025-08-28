@@ -2,4 +2,6 @@ server:
   port: 8082
 spring:
   application:
-    name: service-a
+    name: service-b
+api:
+  key: access-key
