@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: service-a
+          uri: http://localhost:8081
+          predicates:
+            - Path=/service-a/**
+        - id: service-b
+          uri: http://localhost:8082
+          predicates:
+            - Path=/service-b/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9090/realms/gateway-realm
