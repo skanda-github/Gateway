@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "e25c7d09-501f-4efa-bd98-232fae8745a7",
+		"name": "Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24517081",
+		"_collection_link": "https://abc111-5466.postman.co/workspace/Learning~5593f40c-8057-4970-9554-083e778d6d23/collection/24517081-e25c7d09-501f-4efa-bd98-232fae8745a7?action=share&source=collection_link&creator=24517081"
+	},
+	"item": [
+		{
+			"name": "Keycloak JWT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "gateway-client",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "yjfifLQ23zvHv1dLg6o1rmy32yQUs8NH",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "test-user",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:9090/realms/gateway-realm/protocol/openid-connect/token"
+			},
+			"response": []
+		},
+		{
+			"name": "Service A Hello Request",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ2OFFrVzlldU0xbGh0ZjZ4WHd2ZDJxNDltenFvUjl6cExtYjZSeHF0ZmRBIn0.eyJleHAiOjE3NTYzNjI5MjMsImlhdCI6MTc1NjM2MjYyMywianRpIjoiNTFjYWRkMjAtOWJlYy00ZDhmLWJlZGQtYmFiMzE3NzQ2YzQzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9nYXRld2F5LXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImExNGRiNjQwLTY4MmMtNGJhNC1hNTA3LWZkOGU0NDhhODZhNyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImdhdGV3YXktY2xpZW50Iiwic2lkIjoiODdmMzMxZDktZTRhYS00YmVmLTk4MjAtOTdhM2Y0NDNmNzg3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1nYXRld2F5LXJlYWxtIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoidXNlciB0ZXN0IiwicHJlZmVycmVkX3VzZXJuYW1lIjoidGVzdC11c2VyIiwiZ2l2ZW5fbmFtZSI6InVzZXIiLCJmYW1pbHlfbmFtZSI6InRlc3QiLCJlbWFpbCI6InRlc3QudXNlckBleGFtcGxlLmNvbSJ9.W8z-6vnnjuHOkH_BHc3oed4qlery-4tFOBb9XcEizz168wpuVV2psKHFPsrq8ebGcBS0N7_fv5yiiLiURQ0kFvpGNx4ABmL4AwvQGIuu7EkCrGDQVhlIrhadjbbVfY0YyVsBBgyzboAfcGg6MvGFBnJHoCSjcP-SL4dIJ4Bd2LeoH5vOg0wMsuDTLpyiXMY19sUbUKEHznwW1YGPe1uAjfT21jhBQdHLIwWw54Y_o66EuKmB-UUClXfp5ES55ZfbxOuWKLNt0lZdtYyu9877JPeRfcoqrS3s6m7SF-Pxzux2QB6cMFcJ6UQ6-5fXjo2awaPeqrgJwVjk5ohnYHzAfw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/service-a/hello"
+			},
+			"response": []
+		},
+		{
+			"name": "Service B Hello Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ2OFFrVzlldU0xbGh0ZjZ4WHd2ZDJxNDltenFvUjl6cExtYjZSeHF0ZmRBIn0.eyJleHAiOjE3NTYzNjI5MjMsImlhdCI6MTc1NjM2MjYyMywianRpIjoiNTFjYWRkMjAtOWJlYy00ZDhmLWJlZGQtYmFiMzE3NzQ2YzQzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9nYXRld2F5LXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImExNGRiNjQwLTY4MmMtNGJhNC1hNTA3LWZkOGU0NDhhODZhNyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImdhdGV3YXktY2xpZW50Iiwic2lkIjoiODdmMzMxZDktZTRhYS00YmVmLTk4MjAtOTdhM2Y0NDNmNzg3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1nYXRld2F5LXJlYWxtIiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoidXNlciB0ZXN0IiwicHJlZmVycmVkX3VzZXJuYW1lIjoidGVzdC11c2VyIiwiZ2l2ZW5fbmFtZSI6InVzZXIiLCJmYW1pbHlfbmFtZSI6InRlc3QiLCJlbWFpbCI6InRlc3QudXNlckBleGFtcGxlLmNvbSJ9.W8z-6vnnjuHOkH_BHc3oed4qlery-4tFOBb9XcEizz168wpuVV2psKHFPsrq8ebGcBS0N7_fv5yiiLiURQ0kFvpGNx4ABmL4AwvQGIuu7EkCrGDQVhlIrhadjbbVfY0YyVsBBgyzboAfcGg6MvGFBnJHoCSjcP-SL4dIJ4Bd2LeoH5vOg0wMsuDTLpyiXMY19sUbUKEHznwW1YGPe1uAjfT21jhBQdHLIwWw54Y_o66EuKmB-UUClXfp5ES55ZfbxOuWKLNt0lZdtYyu9877JPeRfcoqrS3s6m7SF-Pxzux2QB6cMFcJ6UQ6-5fXjo2awaPeqrgJwVjk5ohnYHzAfw"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/service-b/hello"
+			},
+			"response": []
+		},
+		{
+			"name": "Service A Access Via X-API_KEY",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "access-key",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8081/service-a/hello"
+			},
+			"response": []
+		},
+		{
+			"name": "Service B Access Via X-API_KEY",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "access-key",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8082/service-b/hello"
+			},
+			"response": []
+		}
+	]
+}
