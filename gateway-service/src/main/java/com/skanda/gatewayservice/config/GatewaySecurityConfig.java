@@ -18,8 +18,9 @@ public class GatewaySecurityConfig {
         http
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(exchanges -> exchanges
-                        .pathMatchers("/service-a/hello-user/**").hasRole("USER")
+                        .pathMatchers("/service-a/hello-user/**").hasAnyRole("USER", "ADMIN")
                         .pathMatchers("/service-a/hello-admin/**").hasRole("ADMIN")
+                        .pathMatchers("/service-b/hello/**").hasRole("USER")
                         .anyExchange().authenticated()
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2

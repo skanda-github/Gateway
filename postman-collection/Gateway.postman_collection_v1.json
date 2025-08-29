@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "e25c7d09-501f-4efa-bd98-232fae8745a7",
+		"name": "Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24517081",
+		"_collection_link": "https://abc111-5466.postman.co/workspace/Learning~5593f40c-8057-4970-9554-083e778d6d23/collection/24517081-e25c7d09-501f-4efa-bd98-232fae8745a7?action=share&source=collection_link&creator=24517081"
+	},
+	"item": [
+		{
+			"name": "Keycloak JWT User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "gateway-client",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "0YMYoIMkMtrgc8CnS8zBTWyGO05QKvhc",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "test-user",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9090/realms/gateway-realm/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"realms",
+						"gateway-realm",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Keycloak JWT Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "gateway-client",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "0YMYoIMkMtrgc8CnS8zBTWyGO05QKvhc",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "test-admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9090/realms/gateway-realm/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"realms",
+						"gateway-realm",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service A User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5aUFBZ09QRkdEODdkbXQ3cFN6VnJBdXpuaEx3d0c0VkNCWUdlSHV3ZUh3In0.eyJleHAiOjE3NTY0NTU2MTYsImlhdCI6MTc1NjQ1NTMxNiwianRpIjoiZTJhN2Q5ZWEtNjdlYS00NmVhLWIxYmYtM2VkNTRkMDI0YzAzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9nYXRld2F5LXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImNlNDkzMDFjLTgwNDctNDJkZC1hYzQxLTUyMTIwZDRjZjhmMiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImdhdGV3YXktY2xpZW50Iiwic2lkIjoiN2ZiODdlNDQtYmIxOC00OWEyLTk4MTUtMzYyMWQzODdkMDdmIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZ2F0ZXdheS1yZWFsbSIsIm9mZmxpbmVfYWNjZXNzIiwiUk9MRV9BRE1JTiIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJhZG1pbiB0ZXN0IiwicHJlZmVycmVkX3VzZXJuYW1lIjoidGVzdC1hZG1pbiIsImdpdmVuX25hbWUiOiJhZG1pbiIsImZhbWlseV9uYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdC5hZG1pbkBleGFtcGxlLmNvbSJ9.RsB5ZkKNQndYEuknDUFAcRdE1asPEVdWnoDfijf5glEU34EdsQCce5eBB1On50-5JVheOpvp4Owrak_Dqjr9flwccPe5h36Oy_Kh7qtHunuEMn-ykkheBjtlcozLzW3_VUCivoINcfzuzH90hxH_bLncprEiNbiV1egUDl2z-3VSsNCYhZ-SHP2dqVbJK2AsvXt-X2RwMARcg_jy4BFd9Zye_nQ2AXR6Dttb1h3DqImbJFhuNWV1mQ8v7g8ULuCrFQ3BYbp3APwQSlYDT5jnxc99sTQ8Qpx6S09ujt5214c2mTzg5QsSNcxzJKqr1l_CKBpbU2vjGVvIiROG2bwpNA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/service-a/hello-user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"service-a",
+						"hello-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service A Admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5aUFBZ09QRkdEODdkbXQ3cFN6VnJBdXpuaEx3d0c0VkNCWUdlSHV3ZUh3In0.eyJleHAiOjE3NTY0NTU2MTYsImlhdCI6MTc1NjQ1NTMxNiwianRpIjoiZTJhN2Q5ZWEtNjdlYS00NmVhLWIxYmYtM2VkNTRkMDI0YzAzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9nYXRld2F5LXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImNlNDkzMDFjLTgwNDctNDJkZC1hYzQxLTUyMTIwZDRjZjhmMiIsInR5cCI6IkJlYXJlciIsImF6cCI6ImdhdGV3YXktY2xpZW50Iiwic2lkIjoiN2ZiODdlNDQtYmIxOC00OWEyLTk4MTUtMzYyMWQzODdkMDdmIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZ2F0ZXdheS1yZWFsbSIsIm9mZmxpbmVfYWNjZXNzIiwiUk9MRV9BRE1JTiIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJhZG1pbiB0ZXN0IiwicHJlZmVycmVkX3VzZXJuYW1lIjoidGVzdC1hZG1pbiIsImdpdmVuX25hbWUiOiJhZG1pbiIsImZhbWlseV9uYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdC5hZG1pbkBleGFtcGxlLmNvbSJ9.RsB5ZkKNQndYEuknDUFAcRdE1asPEVdWnoDfijf5glEU34EdsQCce5eBB1On50-5JVheOpvp4Owrak_Dqjr9flwccPe5h36Oy_Kh7qtHunuEMn-ykkheBjtlcozLzW3_VUCivoINcfzuzH90hxH_bLncprEiNbiV1egUDl2z-3VSsNCYhZ-SHP2dqVbJK2AsvXt-X2RwMARcg_jy4BFd9Zye_nQ2AXR6Dttb1h3DqImbJFhuNWV1mQ8v7g8ULuCrFQ3BYbp3APwQSlYDT5jnxc99sTQ8Qpx6S09ujt5214c2mTzg5QsSNcxzJKqr1l_CKBpbU2vjGVvIiROG2bwpNA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/service-a/hello-admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"service-a",
+						"hello-admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service B Hello Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5aUFBZ09QRkdEODdkbXQ3cFN6VnJBdXpuaEx3d0c0VkNCWUdlSHV3ZUh3In0.eyJleHAiOjE3NTY0NTU3MDksImlhdCI6MTc1NjQ1NTQwOSwianRpIjoiNmQ4ZjU3MzctMGM0Ni00Mjg4LWE3NTUtOGEzNzczMzM1MmYwIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9nYXRld2F5LXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjBkNjBhNTY3LTk1NDEtNDE0Yi04ZDRkLTc3MWIxZGJhZGVlNSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImdhdGV3YXktY2xpZW50Iiwic2lkIjoiMzU1MzU4NTAtMGFhYy00MWRmLWE2NGQtYjM3ZTQwOWJjNWQ3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZ2F0ZXdheS1yZWFsbSIsIlJPTEVfVVNFUiIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6InVzZXIgdGVzdCIsInByZWZlcnJlZF91c2VybmFtZSI6InRlc3QtdXNlciIsImdpdmVuX25hbWUiOiJ1c2VyIiwiZmFtaWx5X25hbWUiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0LnVzZXJAZXhhbXBsZS5jb20ifQ.gQkVbdHw5U6vaV7_-FwsaiQ_mWgwW50bD-g3qgnpPTPCyhdDA4RChTpTSRkNffwFtRYsZMvRbd9QBusYAwTvgXNmyFZRdfjzzAiQswXond8l-IRvIb7IRrtKgleo_C2cwMQbHyuG4XsKtNpwdf-hNxNfjZq2AXsBd2LmdRvkye9en4mXtsZB6RfsScA-Zt8-QF77W28NVNtb5_G5hBXq-vjGy8VTOyyaaZyi_MOspKdNd5-hMDdyFK6HeHNg5F8eMfh6LGRQnR3kou_dDDvi9CWWyK33ZCDMPrnpj_ZTlrXja8BaOyIQUAjz5lGM39BXVv5gbbv_dpx9akYz8h6tFA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/service-b/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"service-b",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service A Access Via X-API_KEY User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "access-key",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/service-a/hello-user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"service-a",
+						"hello-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service A Access Via X-API_KEY Admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "access-key",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/service-a/hello-admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"service-a",
+						"hello-admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service B Access Via X-API_KEY",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "access-key",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8082/service-b/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"service-b",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
