@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/service-a")
 public class HelloController {
 
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello from Service A";
+    @GetMapping("/hello-user")
+    public String helloUser() {
+        return "Hello USER from Service A";
+    }
+
+    @GetMapping("/hello-admin")
+    public String helloAdmin() {
+        return "Hello ADMIN from Service A";
     }
 }

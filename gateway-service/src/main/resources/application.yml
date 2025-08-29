@@ -7,12 +7,20 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: service-a
+        - id: service-a-user
           uri: http://localhost:8081
           predicates:
-            - Path=/service-a/**
+            - Path=/service-a/hello-user/**
           filters:
             - SetRequestHeader=X-API-KEY,access-key
+
+        - id: service-a-admin
+          uri: http://localhost:8081
+          predicates:
+            - Path=/service-a/hello-admin/**
+          filters:
+            - SetRequestHeader=X-API-KEY,access-key
+
         - id: service-b
           uri: http://localhost:8082
           predicates:
